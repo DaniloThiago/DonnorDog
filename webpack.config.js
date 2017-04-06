@@ -21,7 +21,8 @@ module.exports = {
 				loader: 'babel-loader',
 				exclude: '/node_modules', // excluindo a pasta do teste
 				query: {
-					presets: ['es2015', 'react']
+					presets: ['es2015', 'react'],
+					plugins: ['transform-object-rest-spread']
 				}
 			},
 			{
