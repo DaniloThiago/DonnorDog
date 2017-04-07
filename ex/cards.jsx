@@ -1,41 +1,45 @@
-import './app'
-import './estilo'
-import React, { Component } from 'react'
-import Card from './card2'
+import React from 'react'
 
-class Cards extends Component {
-	constructor() {
-		super();
-		this.state = {
-			name: '',
-			title: 'teste title',
-			color: 'Pink',
-			image: 'https://instagram.fnat1-1.fna.fbcdn.net/t51.2885-15/s750x750/sh0.08/e35/17265662_753792378113725_6876582643392053248_n.jpg',
-			description: 'none'
-		}
-	}
-
-	componentDidMount() {
-		var that = this
-		firebase.database().ref('dogs').on('value', function(snapshot) {
-			snapshot.forEach(function (item) {
-				<Card	name={item.val().name}
-					title={item.val().age} />
-			});
-		});
-	}
+class Card extends React.Component {
 
 	render() {
-		return (
-			<Card
-				name="Lola"
-				color="Red"
-				title="Pastor Suiço"
-				image="https://instagram.fnat1-1.fna.fbcdn.net/t51.2885-15/s750x750/sh0.08/e35/17265662_753792378113725_6876582643392053248_n.jpg"
-				description="Freeman has received Academy Award nominations for his performances in Street Smart, Driving Miss Daisy, The Shawshank Redemption and Invictus ..."
-			/>
-		)
+		let elements = this.props.cards.map((element) => {
+			return (
+				<div key={element.name} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <article className={"material-card "+element.color} >
+			      <h2>
+			        <span>
+			          {element.name}
+			        </span>
+			        <strong>
+			          <i className={"fa fa-fw "+element.ico}></i>
+			          {element.raca}
+			        </strong>
+			      </h2>
+			      <div className="mc-content">
+			        <div className="img-container">
+			          <img className="img-responsive" src={element.image}></img>
+			        </div>
+			        <div className="mc-description">
+			          {element.description}
+			        </div>
+			      </div>
+			      <a className="mc-btn-action">
+			      	<i className="fa fa-bars"></i>
+			      </a>
+			      <div className="mc-footer">
+			        <h4>Social</h4>
+			        <a className="fa fa-fw fa-facebook"></a>
+			        <a className="fa fa-fw fa-instagram"></a>
+			        <a className="fa fa-fw fa-twitter"></a>
+			        <a className="fa fa-fw fa-envelope"></a>
+			      </div>
+			    </article>
+				</div>
+			)	
+		})
+			return <span>{elements}</span>
 	}
 }
 
-export default Cards;
+export default Card;

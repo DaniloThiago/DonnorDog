@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autenticação</title>
+	<meta nname="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta hhttp-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/lumen/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<div id="noAuth" class="modal fad" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header alert-warning">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title alert-warning">Atenção</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Você tem que estar autenticado para cadastrar um novo usuário.</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<img src="/img/logo.png" width="100vw">
+	
+	<div class="col-md-4">
+		<h3 class="text-center" id="displayName">Você não está autenticado.</h3>
+		<br>
+		<form>
+			<div class="form-group">
+				<label for="emailInput">E-mail</label>
+				<input type="email" class="form-control" id="emailInput" placeholder="E-mail">
+			</div>
+			<div class="form-group">
+				<label for="passwordInput">Senha</label>
+				<input type="password" class="form-control" id="passwordInput" placeholder="Senha">
+			</div>
+		</form>
+		<div id="alerta" class="alert alert-warning text-center hidden"></div>
+		<br>
+		<button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Autenticar</button>
+		<br>
+		<button class="btn btn-lg btn-block btn-info" id="createUserButton">Criar Nova Conta</button>
+		<br>
+		<button class="btn btn-lg btn-block btn-default" id="logOutButton">Sair</button>
+	</div>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script src="js/authentication.js"></script>
+</body>
+</html>

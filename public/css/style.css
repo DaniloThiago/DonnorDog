@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+.btn-lg {
+    min-width: 60px !important;
+}
+#alerta {
+    margin-bottom: 0 !important;
+}
