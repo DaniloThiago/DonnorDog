@@ -6,24 +6,44 @@ class Card extends React.Component {
 		super(props);
 		
 	}
-  handleClick(event) {
-    event.preventDefault()
-    var el = event.target
-		var card = $(el).parent('.material-card');
-    var icon = $(el).children('i');
-    icon.addClass('fa-spin-fast');
-    if (card.hasClass('mc-active')) {
-      card.removeClass('mc-active');
-      window.setTimeout(function() {
-        icon.removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
-      }, 800);
-    } else {
-      card.addClass('mc-active');
-      window.setTimeout(function() {
-        icon.removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
-      }, 800);
-    }
-  }
+
+	handleClickBtn(event) {
+		event.preventDefault()
+		var el = event.target
+			var card = $(el).parent('.material-card');
+		var icon = $(el).children('i');
+		icon.addClass('fa-spin-fast');
+		if (card.hasClass('mc-active')) {
+		  card.removeClass('mc-active');
+		  window.setTimeout(function() {
+		    icon.removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
+		  }, 800);
+		} else {
+		  card.addClass('mc-active');
+		  window.setTimeout(function() {
+		    icon.removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
+		  }, 800);
+		}
+	}
+
+	handleClickIcon(event) {
+		event.preventDefault()
+		var el = event.target
+		var card = $(el).closest('.material-card');
+		var icon = $(el).children('i');
+		$(el).addClass('fa-spin-fast');
+		if (card.hasClass('mc-active')) {
+		  card.removeClass('mc-active');
+		  window.setTimeout(function() {
+		    $(el).removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
+		  }, 800);
+		} else {
+		  card.addClass('mc-active');
+		  window.setTimeout(function() {
+		    $(el).removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
+		  }, 800);
+		}
+	}
 	render() {
 		let elements = this.props.cards.map((element, i) => {			
 			return (
@@ -46,8 +66,8 @@ class Card extends React.Component {
 			          {element.mensagem}
 			        </div>
 			      </div>
-			      <a className="mc-btn-action" onClick={this.handleClick.bind()}>
-			      	<i className="fa fa-bars"></i>
+			      <a className="mc-btn-action" onClick={this.handleClickBtn.bind()}>
+			      	<i className="fa fa-bars" onClick={this.handleClickIcon.bind()}></i>
 			      </a>
 			      <div className="mc-footer">
 			        <h4>Social</h4>
