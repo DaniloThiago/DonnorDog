@@ -1,6 +1,13 @@
 /*Red, Pink, Purple, Deep-Purple, Indigo, Blue, Light-Blue,
 Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange,
 Deep-Orange, Brown, Grey, Blue-Grey*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
 body {
     background-color: #69c;
     text-align: center;
@@ -27,6 +34,164 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #c83834;
 }
+header {
+  background-color: #191919;
+  width: 100%;
+  height: 95px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+
+#header-inner {
+  max-width: 1750px;
+  margin: 0 auto;
+}
+
+#logo-donnordog {
+  margin-top: 3px;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
+  height: 140px;
+  background: url('/img/logo.png') no-repeat center;
+  background-size: 100% 100%;
+  position: absolute;
+}
+
+/*mobile menu icon*/
+
+#menu-icon {
+  display: hidden;
+  width: 50px;
+  height: 50px;
+  background: url(http://res.cloudinary.com/maxlearncode/image/upload/v1488492983/nav1_qxvap6.png) center no-repeat;
+}
+
+a:hover#menu-icon {
+  border-radius: 4px 4px 0 0;
+}
+
+/*navigation*/
+
+nav {
+  float: right;
+  padding: 20px 25px 0 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  font-size: 140%;
+  display: inline-block;
+  float: left;
+  padding: 15px;
+  font-weight: 300;
+  margin:
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+nav ul li a:hover {
+  color: #FF0000;
+}
+
+/*text section*/
+
+h1  {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  padding: 3% 0 3% 0;
+}
+
+h3  {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+
+
+.hover-a {
+  text-transform: uppercase;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  text-decoration: none;
+  color: #e0dbdb;
+  padding: 0 2px 0 2px;
+}
+
+.hover-a:hover {
+  background-color: #f90000;
+  font-style: none;
+}
+
+
+/*media queries */
+
+@media screen and (max-width: 1000px) {
+  #logo-donnordog {
+    left: 25px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  #logo-donnordog {
+    left: 50%;
+    margin-left: -75px;
+  }
+
+  #menu-icon {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  nav ul, nav:active ul {
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    padding: 20px 0;
+    background: #191919;
+    right: 0.1px;
+    top: 60px;
+    text-align: center;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+
+  }
+
+  h1  {
+    margin-bottom: 25px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    max-width: 85%;
+  }
+}
+
 @import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
 .fa-spin-fast {
   -webkit-animation: fa-spin-fast 0.2s infinite linear;
@@ -1293,4 +1458,10 @@ h3 {
   border: 2px solid #ccc;
   padding: 2px;
   box-shadow: 3px 5px 5px rgba(0,0,0,0.5);
+}
+.legenda {
+  width: 130px;
+  height: 40px;
+  margin: 0 5px;
+  padding: 0;
 }
