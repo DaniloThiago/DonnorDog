@@ -4,6 +4,7 @@
 	<title>Autenticação</title>
 	<meta nname="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta hhttp-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="app.css">
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/lumen/bootstrap.min.css">
@@ -11,35 +12,29 @@
 </head>
 
 <body>
-	<div id="noAuth" class="modal fad" tabindex="-1" role="dialog">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header alert-warning">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title alert-warning">Atenção</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>Você tem que estar autenticado para cadastrar um novo usuário.</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-	<img src="/img/logo.png" width="100vw">
+	<header id="header_bar" className="header">
+    <div id="header-inner">
+      <a href="#about" id="logo-donnordog"></a>
+      <nav>
+        <a  id="menu-icon"></a>
+        <ul>
+          <li><a href="./" className="slide-section">HOME</a></li>
+          <li><a href="./authentication.html" className="slide-section">ENTRAR</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 	
 	<div class="col-md-4">
 		<h3 class="text-center" id="displayName">Você não está autenticado.</h3>
 		<br>
 		<form>
 			<div class="form-group">
-				<label for="emailInput">E-mail</label>
+				<label for="emailInput" class="col-xs-12 text-left">E-mail</label>
 				<input type="email" class="form-control" id="emailInput" placeholder="E-mail">
 			</div>
 			<div class="form-group">
-				<label for="passwordInput">Senha</label>
+				<label for="passwordInput" class="col-xs-12 text-left">Senha</label>
 				<input type="password" class="form-control" id="passwordInput" placeholder="Senha">
 			</div>
 		</form>

@@ -8,6 +8,25 @@ body {
 	  margin: 0;
 	  padding: 0;
 }
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #c83834;
+}
 @import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
 .fa-spin-fast {
   -webkit-animation: fa-spin-fast 0.2s infinite linear;
@@ -38,7 +57,6 @@ body {
   height: 0;
   padding-bottom: calc(100% - 16px);
   margin-bottom: 6.6em;
-  z-index: -1;
 }
 .material-card h2 {
   position: absolute;
@@ -1258,4 +1276,21 @@ h1,
 h2,
 h3 {
   font-weight: 200;
+}
+#section-post {
+  position: relative;
+  top: 150px;
+  z-index: 0;
+  margin-bottom: 50px;
+}
+.mc-content .img-container .img-responsive {
+  width: 100% !important;
+  height: 100% !important;
+}
+#preview-photo {
+  width: 100px;
+  height: 105px;
+  border: 2px solid #ccc;
+  padding: 2px;
+  box-shadow: 3px 5px 5px rgba(0,0,0,0.5);
 }

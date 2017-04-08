@@ -9,7 +9,7 @@ export default props => (
         <a  id="menu-icon"></a>
         <ul>
           <li><a href="./" className="slide-section">HOME</a></li>
-          <li><a href="./add.html" className="slide-section">CADASTRO</a></li>
+          <li><a href="./authentication.html" className="slide-section">ENTRAR</a></li>
         </ul>
       </nav>
     </div>

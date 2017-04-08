@@ -1,12 +1,34 @@
-var nameInput = document.getElementById('nameInput');
-var ageInput = document.getElementById('ageInput');
 var addButton = document.getElementById('addButton');
 var logOutButton = document.getElementById('logOutButton');
 
+var imageInput = document.getElementById('imageInput');
+var nameInput = document.getElementById('nameInput');
+var racaInput = document.getElementById('racaInput');
+var sexoInput = document.getElementById('sexoInput');
+var urgencyInput = document.getElementById('urgencyInput');
+var msgInput = document.getElementById('msgInput');
+var istagramInput = document.getElementById('istagramInput');
+var facebookInput = document.getElementById('facebookInput');
+var twitterInput = document.getElementById('twitterInput');
+var emailInput = document.getElementById('emailInput');
+
+if(!!addButton)
 addButton.addEventListener('click', function(){
-	create(nameInput.value, ageInput.value);
+	create(
+		imageInput.value,
+		nameInput.value,
+		racaInput.value,
+		sexoInput.value,
+		urgencyInput.value,
+		msgInput.value,
+		istagramInput.value,
+		facebookInput.value,
+		twitterInput.value,
+		emailInput.value
+	);
 });
 
+if(!!logOutButton)
 logOutButton.addEventListener('click', function () {
 	firebase
 		.auth()
@@ -22,10 +44,18 @@ logOutButton.addEventListener('click', function () {
 		});
 });
 
-function create(name, age) {
+function create( foto, nome, raca, sexo, necessidade, mensagem, instagram, facebook, twitter, email) {
 	var data = {
-		name: name,
-		age: age
+		foto: foto,
+		nome: nome,
+		raca: raca,
+		sexo: sexo,
+		necessidade: necessidade,
+		mensagem: mensagem,
+		instagram: instagram,
+		facebook: facebook,
+		twitter: twitter,
+		email: email,
 	};
 
 	firebase.database().ref().child('dogs').push(data);

@@ -30,12 +30,12 @@
   </header>
   <section id="section-post">
 		<div class="col-xs-12 center-block">
-			<h3><strong>Cadastro no Sistema</strong></h3>
+			<p>Cadastre seu animal e seja mais um a ajudar a quem precisa. Abrace essa causa.</p>		
 			<div class="form-group col-md-3 pull-right">
 				<label class="col-xs-12" for="preview-photo">Preview</label>
 				<img id="preview-photo" src="./img/animais.jpg" alt="Preview foto" class="img-rounded">
 			</div>		
-			<form class="contato-form">
+			<form class="contato-form" action="http://formspree.io/adm.donnordog@gmail.com" method="post">
 				<div class="row">
 					<div class="form-group col-xs-12">
 						<label class="text-left col-xs-12" for="imageInput">Endereço da imagem</label>
@@ -61,7 +61,7 @@
 					<div class="form-group col-xs-12">
 						<label class="text-left col-xs-12" for="urgencyInput">Necessidade</label>
 						<select name="Gênero" id="urgencyInput" class="form-control" required>
-						  <option value="Doador">Doador</option>
+						  <option>Doador</option>
 						  <option value="Blue">Não urgência</option>
 						  <option value="Green">Semi-urgência</option>
 						  <option value="Yellow">Urgência</option>
@@ -90,7 +90,9 @@
 	       	<div class="input-group-addon"><i style="width: 20px;" class="fa fa-envelope" aria-hidden="true"></i></div>
 		      <input name="Email" id="emailInput" type="text" class="form-control" placeholder="E-mail">
 		    </div>
-        <button id="addButton" class="btn btn-lg btn-primary col-xs-6 col-xs-offset-3">Enviar</button>
+
+        <button type="submit" value="Send" class="btn btn-lg btn-primary col-xs-6 col-xs-offset-3">Enviar</button>
+        <div id="msgForm"></div>
       </form>
 		</div>
   </section>	
@@ -99,12 +101,35 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/real-time-database.js"></script>
 	<script type="text/javascript">		
-		
+		window.onscroll = fadeNav;
 		document.getElementById("imageInput").addEventListener("change", myFunction);
 		
 		function myFunction() {
 			document.getElementById("preview-photo").setAttribute('src', document.getElementById("imageInput").value);
 		}
+
+  	var $contactForm = $('.contact-form');  
+
+		$contactForm.submit(function(e) {
+	    e.preventDefault();
+	    console.log('enviando...')
+	    $.ajax({
+	      url: 'https://formspree.io/adm.donnordog@gmail.com',
+	      type: 'POST',
+	      data: $(this).serialize(),
+	      dataType: 'json',
+	      beforeSend: function() {
+	        $contactForm.find('#msgForm').html('<div class="alert alert-info">Enviando mensagem</div>');
+	        $contactForm[0].reset();
+	      },
+	      success: function(data) {
+	        $contactForm.find('.alert-info').html('<div class="alert alert-success">Mensagem enviada!</div>').removeClass('alert alert-info');
+	      },
+	      error: function(err) {
+	        $contactForm.find('.alert-info').html('<div class="alert alert-danger">Ocorreu um erro ao enviar sua mensagem, tente novamente mais tarde.</div>').removeClass('alert alert-info');
+	      }
+	    });
+	  });
 	</script>
 </body>
 </html>

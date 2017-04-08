@@ -2,37 +2,59 @@ import React from 'react'
 
 class Card extends React.Component {
 
+	constructor(props) {
+		super(props);
+		
+	}
+  handleClick(event) {
+    event.preventDefault()
+    var el = event.target
+		var card = $(el).parent('.material-card');
+    var icon = $(el).children('i');
+    icon.addClass('fa-spin-fast');
+    if (card.hasClass('mc-active')) {
+      card.removeClass('mc-active');
+      window.setTimeout(function() {
+        icon.removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
+      }, 800);
+    } else {
+      card.addClass('mc-active');
+      window.setTimeout(function() {
+        icon.removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
+      }, 800);
+    }
+  }
 	render() {
-		let elements = this.props.cards.map((element) => {
+		let elements = this.props.cards.map((element, i) => {			
 			return (
-				<div key={element.name} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-			    <article className={"material-card "+element.color} >
-			      <h2>
+				<div key={i} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			    <article className={"material-card "+((element.necessidade!='Doador')?element.necessidade:((element.sexo=="Macho")?"Teal":"Pink"))} >
+			      <h2 style={{"textShadow":"1px 1px 5px #000"}}>
 			        <span>
-			          {element.name}
+			          {element.nome}
 			        </span>
 			        <strong>
-			          <i className={"fa fa-fw "+element.ico}></i>
-			          {element.raca}
+			          <i className={"fa fa-fw "+ ((element.necessidade!='Doador')?"fa-ambulance":"fa-heart")}></i>
+			          {element.raca +" - "+ element.sexo}
 			        </strong>
 			      </h2>
 			      <div className="mc-content">
 			        <div className="img-container">
-			          <img className="img-responsive" src={element.image}></img>
+			          <img className="img-responsive" src={element.foto}></img>
 			        </div>
 			        <div className="mc-description">
-			          {element.description}
+			          {element.mensagem}
 			        </div>
 			      </div>
-			      <a className="mc-btn-action">
+			      <a className="mc-btn-action" onClick={this.handleClick.bind()}>
 			      	<i className="fa fa-bars"></i>
 			      </a>
 			      <div className="mc-footer">
 			        <h4>Social</h4>
-			        <a className="fa fa-fw fa-facebook"></a>
-			        <a className="fa fa-fw fa-instagram"></a>
-			        <a className="fa fa-fw fa-twitter"></a>
-			        <a className="fa fa-fw fa-envelope"></a>
+			        <a className="fa fa-fw fa-facebook" href={element.facebook} target="_blank"></a>
+			        <a className="fa fa-fw fa-instagram" href={element.instagram} target="_blank"></a>
+			        <a className="fa fa-fw fa-twitter" href={element.twitter} target="_blank"></a>
+			        <a className="fa fa-fw fa-envelope" href={"mailto:"+element.email} target="_parent"></a>
 			      </div>
 			    </article>
 				</div>
