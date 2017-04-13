@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>Autenticação</title>
-	<meta nname="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta hhttp-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="app.css">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/lumen/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
 </head>
 
 <body>
@@ -16,10 +16,12 @@
     <div id="header-inner">
       <a href="#about" id="logo-donnordog"></a>
       <nav>
-        <a  id="menu-icon"></a>
+        <a  id="menu-icon">
+        	<i class="fa fa-bars hidden-sm hidden-md hidden-lg" aria-hidden="true"></i>
+        </a>
         <ul>
           <li><a href="./" className="slide-section">HOME</a></li>
-          <li><a href="./authentication.html" className="slide-section">ENTRAR</a></li>
+  				<li id="goOut" class="hidden"><button type="button" class="btn btn-danger" style="margin-top: -4px;" id="logOutButton">SAIR</button></li>
         </ul>
       </nav>
     </div>
@@ -42,9 +44,9 @@
 		<br>
 		<button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Autenticar</button>
 		<br>
-		<button class="btn btn-lg btn-block btn-info" id="createUserButton">Criar Nova Conta</button>
-		<br>
-		<button class="btn btn-lg btn-block btn-default" id="logOutButton">Sair</button>
+	
+		<button class="btn btn-lg btn-block btn-info hidden" id="createUserButton">Criar Nova Conta</button>
+		
 	</div>
 	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -52,5 +54,13 @@
 	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script src="js/authentication.js"></script>
+	<script type="text/javascript">		
+		firebase.auth().onAuthStateChanged(function(user) {		
+		  if (!!user) {		
+				$('#createUserButton, #logOutButton, #goOut').removeClass('hidden');
+
+			}
+		});		
+	</script>
 </body>
 </html>

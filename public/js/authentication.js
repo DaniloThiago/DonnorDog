@@ -3,20 +3,20 @@ var createUserButton = document.getElementById('createUserButton');
 var logOutButton = document.getElementById('logOutButton');
 var alerta = document.getElementById('alerta');
 
+var goOut = document.getElementById('goOut');
+
 var emailInput = document.getElementById('emailInput');
 var passwordInput = document.getElementById('passwordInput');
 
 var displayName = document.getElementById('displayName');
-var displayNameAdd = document.getElementById('displayNameAdd');
 
 var auth; 
 firebase.auth().onAuthStateChanged(function(user) {
 	auth = !!user;
-	if(user) {
-		displayName.innerText = "Bem vindo "+ user.email;			
+	if(user && displayName) {
+		displayName.innerText = "Bem vindo "+ user.email;	
 	}
 });
-
 function tratarErro(erro) {
 	switch (erro) {
 			case 'auth/wrong-password':
@@ -43,6 +43,7 @@ function limparCampos(){
 	passwordInput.value = '';
 }
 
+if(createUserButton)
 createUserButton.addEventListener('click', function () {
 	if(!auth) return;
 	
@@ -50,41 +51,49 @@ createUserButton.addEventListener('click', function () {
 	.auth()
 	.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
 	.then(function (result){
+		alert('oi')
 		limparCampos();
 	})
 	.catch(function (error) {
-		// console.log(error.code);
-		// console.log(error.message);	
+		console.log(error.code);
+		console.log(error.message);	
 		tratarErro(error.code);		
 	});	  
 });
 
+if(authEmailPassButton)
 authEmailPassButton.addEventListener('click', function () {
 	firebase
 		.auth()
 		.signInWithEmailAndPassword(emailInput.value, passwordInput.value)
 		.then(function (result) {
 			alerta.className += " hidden";
+			displayName.innerText = "Bem vindo "+ emailInput.value;
 			window.location.href = "/add.html";
-			limparCampos();
 		})
 		.catch(function (error) {
-			// console.log(error.code);
-			// console.log(error.message);
+			console.log(error.code);
+			console.log(error.message);		
 			tratarErro(error.code);	
 		});
 });
-
+if(logOutButton)
 logOutButton.addEventListener('click', function () {
 	firebase
 		.auth()
 		.signOut()
 		.then(function (result) {
+			console.log(result);
 			alerta.className += " hidden";
 			displayName.innerText = "Você não está autenticado.";
-			limparCampos();			
+			limparCampos();		
+			if(!!goOut){
+				goOut.setAttribute("class", "hidden");
+				createUserButton.setAttribute("class", "hidden");
+			}
+
 		})
 		.catch(function (error) {
-			// console.log(error);
+			console.log(error);
 		});
 });

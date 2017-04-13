@@ -11,7 +11,7 @@ var displayName = document.getElementById('displayName');
 var auth; 
 firebase.auth().onAuthStateChanged(function(user) {
 	auth = !!user;
-	if(user) {
+	if(user && displayName) {
 		displayName.innerText = "Bem vindo "+ user.email;	
 	}
 });
@@ -42,6 +42,7 @@ function limparCampos(){
 	passwordInput.value = '';
 }
 
+if(createUserButton)
 createUserButton.addEventListener('click', function () {
 	if(!auth) return;
 	
@@ -59,6 +60,7 @@ createUserButton.addEventListener('click', function () {
 	});	  
 });
 
+if(authEmailPassButton)
 authEmailPassButton.addEventListener('click', function () {
 	firebase
 		.auth()
@@ -75,7 +77,8 @@ authEmailPassButton.addEventListener('click', function () {
 			tratarErro(error.code);	
 		});
 });
-
+console.log(logOutButton)
+if(logOutButton)
 logOutButton.addEventListener('click', function () {
 	firebase
 		.auth()

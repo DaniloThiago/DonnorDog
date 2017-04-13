@@ -1,6 +1,7 @@
 /*Red, Pink, Purple, Deep-Purple, Indigo, Blue, Light-Blue,
 Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange,
 Deep-Orange, Brown, Grey, Blue-Grey*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 * {
   margin: 0;
   padding: 0;
@@ -64,9 +65,11 @@ header {
 
 #menu-icon {
   display: hidden;
-  width: 50px;
+  /*width: 50px;
   height: 50px;
-  background: url(http://res.cloudinary.com/maxlearncode/image/upload/v1488492983/nav1_qxvap6.png) center no-repeat;
+  background: url(http://res.cloudinary.com/maxlearncode/image/upload/v1488492983/nav1_qxvap6.png) center no-repeat;*/
+  font-size: 40px;  
+  color: #fff;
 }
 
 a:hover#menu-icon {
@@ -121,7 +124,10 @@ h3  {
   letter-spacing: 5px;
 }
 
-
+  #legendas {
+    margin-top: 180px;
+    height: 100px;
+  }
 
 .hover-a {
   text-transform: uppercase;
@@ -150,25 +156,37 @@ h3  {
 
 @media screen and (max-width: 768px) {
 
+  header {
+    background-color: #191919;
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    float: right;
+    padding: 0px 25px 0 0;
+  }
+
   #logo-donnordog {
     left: 50%;
-    margin-left: -75px;
+    margin-left: -50px;
+    width: 100px;
+    height: 90px;
   }
-
-  #menu-icon {
-    display: inline-block;
-    margin-right: 5px;
-  }
-
+  
   nav ul, nav:active ul {
     display: none;
     z-index: 10000;
     position: absolute;
-    padding: 20px 0;
+    padding-top: 10px;
     background: #191919;
-    right: 0.1px;
-    top: 60px;
+    right: 0;
+    top: 50px;
     text-align: center;
+    width: 130px;
   }
   nav:hover ul {
     display: block;
@@ -176,7 +194,14 @@ h3  {
   nav li {
     text-align: center;
     width: 100%;
+  }
 
+  nav ul li {
+    font-size: 120%;
+    display: inline-block;
+    float: left;
+    padding: 0 0 10px 10px;
+    font-weight: 300;
   }
 
   h1  {
@@ -189,6 +214,10 @@ h3  {
 
   img {
     max-width: 85%;
+  }
+  #legendas {
+    margin-top: 100px;
+    height: 100px;
   }
 }
 
@@ -1464,4 +1493,22 @@ h3 {
   height: 40px;
   margin: 0 5px;
   padding: 0;
+}
+.legenda.Yellow {
+  color: #FFEB3B;
+}
+.legenda.Red {
+  color: #F44336;
+}
+.legenda.Blue {
+  color: #2196F3;
+}
+.legenda.Light-Green {
+  color: #8BC34A;
+}
+.legenda.Pink {
+  color: #E91E63;
+}
+.legenda.Teal {
+  color: #009688;
 }
