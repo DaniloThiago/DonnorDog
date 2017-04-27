@@ -46,10 +46,155 @@
   <section id="section-post">
 		<div class="col-xs-12 center-block">
 			<h3><strong>Cadastro no Sistema</strong></h3>
-			<div class="form-group col-md-3 pull-right">
-				<label class="col-xs-12" for="preview-photo">Preview</label>
-				<img id="preview-photo" src="./img/animais.jpg" alt="Preview foto" class="img-rounded">
-			</div>		
+			<div class="col-xs-12 center-block">
+      <p>
+        Cadastre seu animal e seja mais um a ajudar a quem precisa. Abrace essa causa.
+      </p>
+    	<div style="width: 300px; display: inline-block;">
+        <article class="material-card Red">
+          <h2>
+            <span id="nomePet">
+            </span>
+            <strong>
+              <i class="fa fa-fw ">
+              </i>
+              <span id="racaPet"></span>
+            </strong>
+          </h2>
+          <div class="mc-content">
+            <div class="img-container">
+              <img id="imgPet" class="img-responsive" src="../img/animais.jpg"/>
+            </div>
+            <div id="descricaoPet" class="mc-description">
+              
+            </div>
+          </div>
+          <a id="btn" class="mc-btn-action">
+            <i id="icon" class="fa fa-bars" onclick="handleClickIcon()">
+            </i>
+          </a>
+          <div class="mc-footer">
+            <h4>
+              Social
+            </h4>
+            <a class="fa fa-fw fa-instagram hidden"></a>
+            <a class="fa fa-fw fa-facebook hidden"></a>
+            <a class="fa fa-fw fa-phone hidden"></a>
+            <a class="fa fa-fw fa-envelope hidden"></a>
+          </div>
+        </article>
+      </div>
+      <form action="http://formspree.io/adm.donnordog@gmail.com" class="contato-form" method="post">
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="imageInput">
+              Endereço da imagem
+            </label>
+            <input class="form-control" id="imageInput" name="Foto" placeholder="Insira a URL aqui..." required="" type="text">
+            </input>
+          </div>
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="nameInput">
+              Nome
+            </label>
+            <input class="form-control" id="nameInput" name="Nome:" placeholder="Nome do dog/cat" required="" type="text">
+            </input>
+          </div>
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="racaInput">
+              Raça
+            </label>
+            <input class="form-control" id="racaInput" name="Raça" placeholder="Raça do dog/cat" required="" type="text">
+            </input>
+          </div>
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="sexoInput">
+              Sexo
+            </label>
+            <select class="form-control" id="sexoInput" name="Sexo" required="">
+              <option>
+              </option>
+              <option>
+                Macho
+              </option>
+              <option>
+                Fêmea
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="urgencyInput">
+              Necessidade
+            </label>
+            <select class="form-control" id="urgencyInput" name="Gênero" required="">
+              <option>
+                Doador
+              </option>
+              <option value="Blue">
+                Não urgência
+              </option>
+              <option value="Green">
+                Semi-urgência
+              </option>
+              <option value="Yellow">
+                Urgência
+              </option>
+              <option value="Red">
+                Emergência
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12">
+            <label class="text-left col-xs-12" for="msgInput">
+              Mensagem
+            </label>
+            <input class="form-control" id="msgInput" name="Mensagem" placeholder="Esceva sua mensagem aqui..." required="" type="text">
+            </input>
+          </div>
+        </div>
+        <label class="text-left col-xs-12">
+          Contatos
+        </label>
+        <div class="input-group col-xs-12" style="margin-bottom: 10px; float: right !important">
+          <div class="input-group-addon">
+            <i aria-hidden="true" class="fa fa-instagram" style="width: 20px;">
+            </i>
+          </div>          
+          <input class="form-control" id="instagramInput" name="Instagram" placeholder="Instagram" type="text">
+          </input>
+        </div>
+        <div class="input-group col-xs-12" style="margin-bottom: 10px; float: right !important">
+          <div class="input-group-addon">
+            <i aria-hidden="true" class="fa fa-facebook" style="width: 20px;">
+            </i>
+          </div>
+          <input class="form-control" id="facebookInput" name="Facebook" placeholder="Facebook" type="text">
+          </input>
+        </div>
+        <div class="input-group col-xs-12" style="margin-bottom: 10px; float: right !important">
+          <div class="input-group-addon">
+            <i aria-hidden="true" class="fa fa-phone" style="width: 20px;">
+            </i>
+          </div>
+          <input class="form-control" id="telefoneInput" name="Telefone" placeholder="Telefone" type="text">
+          </input>
+        </div>
+        <div class="input-group col-xs-12" style="margin-bottom: 10px; float: right !important">
+          <div class="input-group-addon">
+            <i aria-hidden="true" class="fa fa-envelope" style="width: 20px;">
+            </i>
+          </div>
+          <input class="form-control" id="emailInput" name="Email" placeholder="E-mail" type="text">
+          </input>
+        </div>
+        <button class="btn btn-lg btn-primary col-xs-6 col-xs-offset-3" type="submit" value="Send">
+          Enviar
+        </button>
+        <div id="msgForm">
+        </div>
+      </form>
+      
+    </div>	
 			<form class="contato-form">
 				<div class="row">
 					<div class="form-group col-xs-12">
@@ -114,7 +259,44 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/real-time-database.js"></script>
 	<script type="text/javascript">		
+		$('#btn').on('click',handleClickBtn);
+		$('#icon').on('click',handleClickIcon);
 
+		function handleClickBtn(event) {
+			var el = event.target
+			var card = $(el).parent('.material-card');
+			var icon = $(el).children('i');
+			icon.addClass('fa-spin-fast');
+			if (card.hasClass('mc-active')) {
+			  card.removeClass('mc-active');
+			  window.setTimeout(function() {
+			    icon.removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
+			  }, 800);
+			} else {
+			  card.addClass('mc-active');
+			  window.setTimeout(function() {
+			    icon.removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
+			  }, 800);
+			}
+		}
+
+		function handleClickIcon(event) {
+			var el = event.target
+			var card = $(el).closest('.material-card');
+			var icon = $(el).children('i');
+			$(el).addClass('fa-spin-fast');
+			if (card.hasClass('mc-active')) {
+			  card.removeClass('mc-active');
+			  window.setTimeout(function() {
+			    $(el).removeClass('fa-arrow-left').removeClass('fa-spin-fast').addClass('fa-bars');
+			  }, 800);
+			} else {
+			  card.addClass('mc-active');
+			  window.setTimeout(function() {
+			    $(el).removeClass('fa-bars').removeClass('fa-spin-fast').addClass('fa-arrow-left');
+			  }, 800);
+			}
+		}
 	</script>
 </body>
 </html>

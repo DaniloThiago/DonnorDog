@@ -1,8 +1,9 @@
 var config = {
-    apiKey: "AIzaSyAb-duVUWLqECgSQaISsDraKKvLSZiUCpo",
-    authDomain: "fir-811bf.firebaseapp.com",
-    databaseURL: "https://fir-811bf.firebaseio.com",
-    storageBucket: "fir-811bf.appspot.com",
-    messagingSenderId: "1034080913004"
-  };
+  apiKey: "AIzaSyC5PoOIfDGvnXeBf7xzjYYkRyoqfagzEuQ",
+  authDomain: "donnordog-e5b10.firebaseapp.com",
+  databaseURL: "https://donnordog-e5b10.firebaseio.com",
+  projectId: "donnordog-e5b10",
+  storageBucket: "donnordog-e5b10.appspot.com",
+  messagingSenderId: "254292280861"
+};
 firebase.initializeApp(config);

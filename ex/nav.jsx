@@ -21,6 +21,7 @@ export default props => (
         </a>
         <ul>
           <li><a href="./" className="slide-section">HOME</a></li>
+          <li><a href="./post.html" className="slide-section">SOLICITAR</a></li>
           {btn}
         </ul>
       </nav>
