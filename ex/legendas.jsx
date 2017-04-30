@@ -22,7 +22,7 @@ export default props => (
     </div>
     <div className="form-group col-xs-6 col-sm-2">
       <div className="form-group-addon">
-        <i style={{"width": "20px"}} className="fa fa-stop legenda Green" aria-hidden="true"></i>
+        <i style={{"width": "20px"}} className="fa fa-stop legenda Light-Green" aria-hidden="true"></i>
       </div>    
       <label className="inline-control">Receptor pouco Urgente</label>
     </div>
