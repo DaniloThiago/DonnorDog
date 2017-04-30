@@ -1,6 +1,28 @@
+function checkStatus(imageUrl) 
+{
+   var http = jQuery.ajax(
+   {
+      type:"HEAD",
+      url: imageUrl,
+      async: false
+    })
+  return http.status;
+}
+
 $("#imageInput").on("change", changeImage);
 function changeImage() {
-    $("#imgPet").attr('src', $("#imageInput")[0].value);
+
+    var imageUrl = $("#imageInput")[0].value;
+    var statuscode = checkStatus(imageUrl);
+
+    if (statuscode == 200)
+    {
+        $("#imgPet").attr('src', $("#imageInput")[0].value);
+    } else 
+    {
+        console.log(statuscode)
+    }
+    
 }
 
 $("#nameInput").keyup(changeNome);
