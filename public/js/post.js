@@ -1,3 +1,5 @@
+$('[data-toggle="popover"]').popover();   
+
 function checkStatus(imageUrl) 
 {
    var http = jQuery.ajax(
@@ -9,9 +11,9 @@ function checkStatus(imageUrl)
   return http.status;
 }
 
-$("#imageInput").on("change", changeImage);
+$("#imageInput").keyup(changeImage);
 function changeImage() {
-
+    console.log('oi')
     var imageUrl = $("#imageInput")[0].value;
     var statuscode = checkStatus(imageUrl);
 
@@ -21,6 +23,7 @@ function changeImage() {
     } else 
     {
         console.log(statuscode)
+        $("#imgPet").attr('src', './img/animais.jpg');
     }
     
 }
@@ -70,29 +73,31 @@ function changeMsg(e){
 
 $("#facebookInput").on("change", changeFacebook);
 function changeFacebook(e) {
-    $(".fa-facebook.hidden")
+    $(".fa-facebook")
         .attr({ href: e.target.value })
         .removeClass("hidden");
 }
 
 $("#instagramInput").on("change", changeInstagram);
 function changeInstagram(e) {
-    $(".fa-instagram.hidden")
+    $(".fa-instagram")
         .attr({ href: e.target.value })
         .removeClass("hidden");
 }
 
 $("#telefoneInput").on("change", changePhone);
 function changePhone(e) {
-    $(".fa-phone.hidden")
-        .attr({ href: e.target.value })
+    console.log(e.target.value)
+    $(".fa-phone")
+        .removeAttr('data-content')
+        .attr({ 'data-content': e.target.value })
         .removeClass("hidden");
 }
 
 $("#emailInput").on("change", changeEmail);
 function changeEmail(e) {
-    $(".fa-envelope.hidden")
-        .attr({ href: e.target.value })
+    $(".fa-envelope")
+        .attr({ href: "mailto:"+e.target.value })
         .removeClass("hidden");
 }
 

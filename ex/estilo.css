@@ -43,13 +43,16 @@ header {
   top: 0;
   z-index: 1000;
 }
-
-
 #header-inner {
   max-width: 1750px;
   margin: 0 auto;
 }
-
+.text-shadow {
+  text-shadow: #000 1px 1px 5px;
+}
+.inline-block {
+  display: inline-block !important;
+}
 #logo-donnordog {
   margin-top: 3px;
   left: 50%;
