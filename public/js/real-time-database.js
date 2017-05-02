@@ -7,7 +7,7 @@ var racaInput = document.getElementById('racaInput');
 var sexoInput = document.getElementById('sexoInput');
 var urgencyInput = document.getElementById('urgencyInput');
 var msgInput = document.getElementById('msgInput');
-var istagramInput = document.getElementById('istagramInput');
+var instagramInput = document.getElementById('instagramInput');
 var facebookInput = document.getElementById('facebookInput');
 var twitterInput = document.getElementById('twitterInput');
 var emailInput = document.getElementById('emailInput');
@@ -21,12 +21,17 @@ addButton.addEventListener('click', function(){
 		sexoInput.value,
 		urgencyInput.value,
 		msgInput.value,
-		istagramInput.value,
+		instagramInput.value,
 		facebookInput.value,
 		twitterInput.value,
 		emailInput.value
 	);
 });
+
+function limparCampos(){
+	emailInput.value = '';
+	passwordInput.value = '';
+}
 
 if(!!logOutButton)
 logOutButton.addEventListener('click', function () {
@@ -34,7 +39,9 @@ logOutButton.addEventListener('click', function () {
 		.auth()
 		.signOut()
 		.then(function (result) {
-			console.log(result);
+			console.log($(logOutButton).parent(), $('#goin').parent());
+			$(logOutButton).parent().addClass('hidden')
+			$('#goin').html('ENTRAR')
 			alerta.className += " hidden";
 			displayName.innerText = "Você não está autenticado.";
 			limparCampos();			

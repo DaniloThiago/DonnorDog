@@ -6,8 +6,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {    
     btn = <li><a href="./authentication.html" className="slide-section">ENTRAR</a></li>
   } else {
-    btn = <li><a href="./authentication.html" className="slide-section">ADMIN</a></li>
-    
+    btn = <li><a href="./authentication.html" className="slide-section">ADMIN</a></li>    
+    logout = <li><button type="button" className="btn btn-danger" style={{"margin-top": "-4px;"}} id="logOutButton">SAIR</button></li>
   }
 });   
 
@@ -22,7 +22,7 @@ export default props => (
         <ul>
           <li><a href="./" className="slide-section">HOME</a></li>
           <li><a href="./post.html" className="slide-section">SOLICITAR</a></li>
-          {btn}
+          {btn} {logout}
         </ul>
       </nav>
     </div>

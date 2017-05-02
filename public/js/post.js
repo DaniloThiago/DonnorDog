@@ -1,3 +1,10 @@
+firebase.auth().onAuthStateChanged(function(user) {           
+  if (!!user) {    
+    $('#logOutButton').parent().removeClass('hidden');
+    $('#goin').html('ADMIN')
+  }
+});   
+
 $('[data-toggle="popover"]').popover();   
 
 function checkStatus(imageUrl) 

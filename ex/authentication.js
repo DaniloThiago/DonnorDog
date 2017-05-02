@@ -18,23 +18,23 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function tratarErro(erro) {
 	switch (erro) {
-			case 'auth/wrong-password':
-				alerta.innerText = 'A senha inválida.';
-				break;
-			case "auth/email-already-in-use":
-				alerta.innerText = 'Usuário já cadastrado.';
-				break;
-			case "auth/weak-password": 
-				alerta.innerText = 'A senha deve ter pelo menos 6 caracteres.';
-				break;
-			case "auth/invalid-email":
-				alerta.innerText = 'O endereço de e-mail está mal formatado.';
-				break;
-			case "auth/user-not-found":
-				alerta.innerText = 'Usuário não encontrado.';
-				break;
-		}		
-		alerta.classList.remove("hidden");
+		case 'auth/wrong-password':
+			alerta.innerText = 'A senha inválida.';
+			break;
+		case "auth/email-already-in-use":
+			alerta.innerText = 'Usuário já cadastrado.';
+			break;
+		case "auth/weak-password": 
+			alerta.innerText = 'A senha deve ter pelo menos 6 caracteres.';
+			break;
+		case "auth/invalid-email":
+			alerta.innerText = 'O endereço de e-mail está mal formatado.';
+			break;
+		case "auth/user-not-found":
+			alerta.innerText = 'Usuário não encontrado.';
+			break;
+	}		
+	alerta.classList.remove("hidden");
 }
 
 function limparCampos(){
@@ -49,8 +49,7 @@ createUserButton.addEventListener('click', function () {
 	firebase
 	.auth()
 	.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
-	.then(function (result){
-		alert('oi')
+	.then(function (result){		
 		limparCampos();
 	})
 	.catch(function (error) {

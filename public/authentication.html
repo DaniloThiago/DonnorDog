@@ -21,6 +21,8 @@
         </a>
         <ul>
           <li><a href="./" className="slide-section">HOME</a></li>
+          <li><a href="./post.html" className="slide-section">SOLICITAR</a></li>          
+          <li id="add" class="hidden"><a href="./add.html" className="slide-section">CADASTRAR</a></li>
   				<li id="goOut" class="hidden"><button type="button" class="btn btn-danger" style="margin-top: -4px;" id="logOutButton">SAIR</button></li>
         </ul>
       </nav>
@@ -57,7 +59,7 @@
 	<script type="text/javascript">		
 		firebase.auth().onAuthStateChanged(function(user) {		
 		  if (!!user) {		
-				$('#createUserButton, #logOutButton, #goOut').removeClass('hidden');
+				$('#createUserButton, #goOut, #add').removeClass('hidden');
 
 			}
 		});		

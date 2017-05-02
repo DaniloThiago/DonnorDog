@@ -1491,27 +1491,36 @@ h3 {
   padding: 2px;
   box-shadow: 3px 5px 5px rgba(0,0,0,0.5);
 }
-.legenda {
-  width: 130px;
-  height: 40px;
-  margin: 0 5px;
+#legendas div {
+  margin: 0;
   padding: 0;
+  display: inline-block;
+  height: 20px;
+}
+.legenda {  
+  width: 40px;
 }
 .legenda.Yellow {
   color: #FFEB3B;
+  background-color: #FFEB3B;
 }
 .legenda.Red {
   color: #F44336;
+  background-color: #F44336;
 }
 .legenda.Blue {
   color: #2196F3;
+  background-color: #2196F3;
 }
 .legenda.Light-Green {
   color: #8BC34A;
+  background-color: #8BC34A;
 }
 .legenda.Pink {
   color: #E91E63;
+  background-color: #E91E63;
 }
-.legenda.Teal {
-  color: #009688;
+.legenda.Brown  {
+  color: #795548;
+  background-color: #795548;
 }
