@@ -14,6 +14,7 @@ firebase.database().ref('dogs').on('value', function(snapshot) {
 	snapshot.forEach(function (item) {
 		cards.push(item.val())
 	});
+	
 	ReactDOM.render(
 			<div>
 				<Legendas />

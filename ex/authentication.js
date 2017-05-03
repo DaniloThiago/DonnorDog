@@ -76,7 +76,7 @@ authEmailPassButton.addEventListener('click', function () {
 			tratarErro(error.code);	
 		});
 });
-console.log(logOutButton)
+
 if(logOutButton)
 logOutButton.addEventListener('click', function () {
 	firebase

@@ -5,11 +5,11 @@ var imageInput = document.getElementById('imageInput');
 var nameInput = document.getElementById('nameInput');
 var racaInput = document.getElementById('racaInput');
 var sexoInput = document.getElementById('sexoInput');
-var urgencyInput = document.getElementById('urgencyInput');
+var situacaoInput = document.getElementById('situacaoInput');
 var msgInput = document.getElementById('msgInput');
 var instagramInput = document.getElementById('instagramInput');
 var facebookInput = document.getElementById('facebookInput');
-var twitterInput = document.getElementById('twitterInput');
+var telefoneInput = document.getElementById('telefoneInput');
 var emailInput = document.getElementById('emailInput');
 
 if(!!addButton)
@@ -19,11 +19,11 @@ addButton.addEventListener('click', function(){
 		nameInput.value,
 		racaInput.value,
 		sexoInput.value,
-		urgencyInput.value,
+		situacaoInput.value,
 		msgInput.value,
 		instagramInput.value,
 		facebookInput.value,
-		twitterInput.value,
+		telefoneInput.value,
 		emailInput.value
 	);
 });
@@ -51,7 +51,7 @@ logOutButton.addEventListener('click', function () {
 		});
 });
 
-function create( foto, nome, raca, sexo, necessidade, mensagem, instagram, facebook, twitter, email) {
+function create( foto, nome, raca, sexo, necessidade, mensagem, instagram, facebook, telefone, email) {
 	var data = {
 		foto: foto,
 		nome: nome,
@@ -61,8 +61,8 @@ function create( foto, nome, raca, sexo, necessidade, mensagem, instagram, faceb
 		mensagem: mensagem,
 		instagram: instagram,
 		facebook: facebook,
-		twitter: twitter,
-		email: email,
+		telefone: telefone,
+		email: email
 	};
 
 	firebase.database().ref().child('dogs').push(data);
